@@ -116,7 +116,6 @@ services:
             parentClasses:
                 - Rector
 
-<<<<<<< HEAD
     -
         class: Symplify\PHPStanRules\Rules\PreferredClassRule
         tags: [phpstan.rules.rule]
@@ -141,38 +140,6 @@ services:
                 PhpParser\Builder\Param: Rector\Core\PhpParser\Builder\ParamBuilder
                 PhpParser\Builder\Property: Rector\Core\PhpParser\Builder\PropertyBuilder
                 PhpParser\Builder\TraitUse: Rector\Core\PhpParser\Builder\TraitUseBuilder
-=======
-    # see https://github.com/symplify/phpstan-rules
-#    open later
-#    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
-#    - vendor/symplify/phpstan-rules/packages/cognitive-complexity/config/cognitive-complexity-services.neon
-#
-#    -
-#        class: Symplify\PHPStanRules\Rules\PreferredClassRule
-#        tags: [phpstan.rules.rule]
-#        arguments:
-#            oldToPrefferedClasses:
-#                # prevent PHPStorm autocomplete mess
-#                'Symfony\Component\DependencyInjection\Variable': 'PhpParser\Node\Expr\Variable'
-#                'phpDocumentor\Reflection\Types\Expression': 'PhpParser\Node\Stmt\Expression'
-#                'phpDocumentor\Reflection\DocBlock\Tags\Param': 'PhpParser\Node\Param'
-#                'phpDocumentor\Reflection\DocBlock\Tags\Return_': 'PhpParser\Node\Stmt\Return_'
-#                'Closure': 'PhpParser\Node\Expr\Closure'
-#                'PHPUnit\TextUI\Configuration\Variable': 'PhpParser\Node\Expr\Variable'
-#                'PhpCsFixer\FixerDefinition\CodeSample': 'Rector\Core\RectorDefinition\CodeSample'
-#                'SebastianBergmann\Type\MixedType': 'PHPStan\Type\MixedType'
-#                'Hoa\Protocol\Node\Node': 'PhpParser\Node'
-#                'Nette\Utils\FileSystem': 'Symplify\SmartFileSystem\SmartFileSystem'
-#                'Symfony\Component\Filesystem\Filesystem': 'Symplify\SmartFileSystem\SmartFileSystem'
-#                # builder typo nodes
-#                PhpParser\Builder\Use_: Rector\Core\PhpParser\Builder\UseBuilder
-#                PhpParser\Builder\Class_: Rector\Core\PhpParser\Builder\ClassBuilder
-#                PhpParser\Builder\Method: Rector\Core\PhpParser\Builder\MethodBuilder
-#                PhpParser\Builder\Namespace_: Rector\Core\PhpParser\Builder\NamespaceBuilder
-#                PhpParser\Builder\Param: Rector\Core\PhpParser\Builder\ParamBuilder
-#                PhpParser\Builder\Property: Rector\Core\PhpParser\Builder\PropertyBuilder
-#                PhpParser\Builder\TraitUse: Rector\Core\PhpParser\Builder\TraitUseBuilder
->>>>>>> d01eb07b4... [CI] enable scoped rector builder
 
 parameters:
     level: max
@@ -475,6 +442,9 @@ parameters:
 
         - '#Method Rector\\BetterPhpDocParser\\Tests\\PhpDocInfo\\PhpDocInfo\\PhpDocInfoTest\:\:createPhpDocInfoFromFile\(\) should return Rector\\BetterPhpDocParser\\PhpDocInfo\\PhpDocInfo but returns Rector\\BetterPhpDocParser\\PhpDocInfo\\PhpDocInfo\|null#'
 
+        # skip for final method, that cannot be overriden without static reflection
+        - '#Class "Rector\\Nette\\Rector\\Class_\\MoveFinalGetUserToCheckRequirementsClassMethodRector" is missing @see annotation with test case class reference#'
+
         # Symfony spl file info false positive
         - '#Parameter \#1 \$callback of function set_error_handler expects \(callable\(int, string, string, int, array\)\: bool\)\|null, \(array&callable\(\)\: mixed\)\|\(callable\(\)\: mixed&object\)\|\(callable\(\)\: mixed&string\) given#'
 
@@ -707,8 +677,6 @@ parameters:
             paths:
                 - packages/better-php-doc-parser/src/PhpDocNodeFactory/ParamPhpDocNodeFactory.php
 
-
-<<<<<<< HEAD
         -
             message: '#Class cognitive complexity is 42, keep it under 40#'
             paths:
@@ -722,9 +690,6 @@ parameters:
                 - rules/naming/src/PropertyRenamer/AbstractPropertyRenamer.php
 
         - '#Cannot call method getParentNode\(\) on Rector\\DeadCode\\ValueObject\\VariableNodeUse\|null#'
-
-        # bug in simplify
-        - '#Parameter 1 should use PhpParser\\Node\\Expr\\MethodCall type as already checked#'
 
         -
              message: '#Class cognitive complexity is \d+, keep it under 40#'

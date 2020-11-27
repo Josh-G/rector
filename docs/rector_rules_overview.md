@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 639 Rules Overview
 =======
+=======
+>>>>>>> e94c83d77... simplify phar autoload
 <<<<<<< HEAD
 # 627 Rules Overview
 =======
@@ -10,7 +13,13 @@
 # 624 Rules Overview
 >>>>>>> [CI] enable scoped rector builder
 >>>>>>> 98a52511f... [CI] enable scoped rector builder
+<<<<<<< HEAD
 >>>>>>> d01eb07b4... [CI] enable scoped rector builder
+=======
+=======
+# 626 Rules Overview
+>>>>>>> 104b5ebd5... simplify phar autoload
+>>>>>>> e94c83d77... simplify phar autoload
 
 <br>
 
