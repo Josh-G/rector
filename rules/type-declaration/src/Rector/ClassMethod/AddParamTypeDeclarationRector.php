@@ -72,16 +72,9 @@ class SomeClass
     }
 }
 CODE_SAMPLE
-<<<<<<< HEAD
             ,
-                $configuration),
-=======
-            , [
-                self::PARAMETER_TYPEHINTS => [
-                    new AddParamTypeDeclaration('SomeClass', 'process', 0, new StringType()),
-                ],
-            ]),
->>>>>>> d01eb07b4... [CI] enable scoped rector builder
+                $configuration
+            ),
         ]);
     }
 

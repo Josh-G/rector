@@ -24,18 +24,13 @@ final class RectorSetProvider extends AbstractSetProvider
     private const DASH_NUMBER_REGEX = '#\-(\d+)#';
 
     /**
-     * @var string[]
-     */
-    private const SET_CLASSES = [SetList::class, DowngradeSetList::class];
-
-    /**
      * @var Set[]
      */
     private $sets = [];
 
     public function __construct()
     {
-        foreach (self::SET_CLASSES as $setListClass) {
+        foreach ([SetList::class, DowngradeSetList::class] as $setListClass) {
             $setListReflectionClass = new ReflectionClass($setListClass);
             $this->hydrateSetsFromConstants($setListReflectionClass);
         }

@@ -9,18 +9,11 @@ final class DowngradeSetList
     /**
      * @var string
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public const PHP_70 = __DIR__ . '/../../../../config/set/downgrade-php70.php';
 
     /**
      * @var string
      */
-=======
-<<<<<<< HEAD
->>>>>>> d01eb07b4... [CI] enable scoped rector builder
-=======
->>>>>>> e94c83d77... simplify phar autoload
     public const PHP_71 = __DIR__ . '/../../../../config/set/downgrade-php71.php';
 
     /**

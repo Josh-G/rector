@@ -46,11 +46,6 @@ trait VisibilityTrait
         $this->visibilityManipulator->makeFinal($node);
     }
 
-    public function makeFinal(Class_ $class): void
-    {
-        $this->visibilityManipulator->makeFinal($class);
-    }
-
     /**
      * @param ClassMethod|Property|ClassConst $node
      */

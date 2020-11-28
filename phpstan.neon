@@ -698,3 +698,8 @@ parameters:
                   - rules/php80/src/Rector/If_/NullsafeOperatorRector.php
                   - rules/code-quality/src/Rector/For_/ForToForeachRector.php
                   - rules/coding-style/src/Rector/Use_/RemoveUnusedAliasRector.php
+
+        -
+            message: '#Use explicit names over dynamic ones#'
+            paths:
+                - utils/compiler/tests/PatchersCallbackTest.php
