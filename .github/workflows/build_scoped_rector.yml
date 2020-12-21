@@ -55,6 +55,9 @@ jobs:
             # downgrade PHPStan code to PHP 7.2
             -   run: bin/rector process vendor/phpstan/phpstan-src/src --config ci/downgrade-phpstan-php74-rector.php --ansi
 
+            # Avoid Composer v2 platform checks (composer.json requires PHP 7.4+, but below we are running 7.3)
+            -   run: composer config platform-check false
+
 #            -   run: mkdir nested-rector
             # @see https://unix.stackexchange.com/a/554912/74260
             # copy to nested directory, so we have clear plate to work with
@@ -69,10 +72,6 @@ jobs:
                 # to make paths in scoper.inc.php work, as the are relative
                 run: cd nested-rector && php ../php-scoper.phar add-prefix bin config packages rules src templates vendor composer.json --output-dir ../rector-scoped --config scoper.inc.php --force --ansi -vvv
 
-            # Avoid Composer v2 platform checks (composer.json requires PHP 7.4+, but below we are running 7.3)
-            -   run: composer config platform-check false --working-dir rector-scoped
-
-#            -   run: bin/rector process rector-scoped/vendor/composer/platform_check.php --config ci/downgrade-php71-rector-scoped.php
 
             -   run: composer dump-autoload --working-dir rector-scoped --ansi --optimize --classmap-authoritative
 
