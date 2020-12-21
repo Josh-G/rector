@@ -22,7 +22,6 @@ cd ..
 
 # [note] ↓ not needed, platform > 7.2.4 in composer.json handles it
 # composer config platform.php 7.2 --working-dir rector-scoped
-# bin/rector process rector-scoped/vendor/composer/platform_check.php --config ci/downgrade-php72-rector-scoped.php
 
 composer dump-autoload --working-dir rector-scoped --ansi --optimize --classmap-authoritative --no-dev
 
