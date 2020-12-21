@@ -49,6 +49,7 @@
         "ocramius/package-versions": "^1.9",
         "php-parallel-lint/php-parallel-lint": "^1.2",
         "phpunit/phpunit": "^9.5",
+        "phpdocumentor/reflection-docblock": "^5.2",
         "sebastian/diff": "^4.0.4",
         "symplify/changelog-linker": "^9.0.14",
         "symplify/easy-coding-standard": "^9.0.14",
